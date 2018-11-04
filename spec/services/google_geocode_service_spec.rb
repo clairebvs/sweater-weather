@@ -12,10 +12,9 @@ describe GoogleGeocodeService do
     context '#coordinates' do
       it 'returns an array of hashes with coordinates data' do
         raw_coordinates = subject.coordinates
-        raw_coordinate = raw_coordinates.first
-        
-        expect(raw_coordinate).to have_key :formatted_address
-        expect(raw_coordinate).to have_key :geometry
+
+        expect(raw_coordinates).to have_key :lat
+        expect(raw_coordinates).to have_key :lng
       end
     end
   end
