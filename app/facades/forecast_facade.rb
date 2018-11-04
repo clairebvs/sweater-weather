@@ -5,8 +5,10 @@ class ForecastFacade
     @location = location
   end
 
-  def geocode_service
-    GoogleGeocodeService.new(location)
+  def current_weather
+    @current_weather ||= dark_sky_service.weather_forecast do |current_data|
+      CurrentWeather.new(current_data)
+    end
   end
 
   def latitude
@@ -15,5 +17,15 @@ class ForecastFacade
 
   def longitude
     @longitude ||= geocode_service.coordinates[:lng]
+  end
+
+  private
+
+  def dark_sky_service
+    DarkSkyService.new(@latitude, @longitude)
+  end
+
+  def geocode_service
+    GoogleGeocodeService.new(location)
   end
 end
