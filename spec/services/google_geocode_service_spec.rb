@@ -10,7 +10,7 @@ describe GoogleGeocodeService do
 
   context 'instance methods' do
     context '#coordinates' do
-      it 'returns an array of hashes with coordinates data' do
+      it 'returns a hash with coordinates data' do
         raw_coordinates = subject.coordinates
 
         expect(raw_coordinates).to have_key :lat
