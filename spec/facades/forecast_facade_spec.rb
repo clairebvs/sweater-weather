@@ -14,10 +14,28 @@ describe ForecastFacade do
         expect(subject.latitude).to eq(39.7392358)
       end
     end
-    
+
     context '#longitude' do
       it 'returns the longitude for a location' do
         expect(subject.longitude).to eq(-104.990251)
+      end
+    end
+
+    context '#current_weather' do
+      it 'returns all weather forecast data at the current time' do
+        expect(subject.current_weather).to be_a CurrentWeather
+      end
+    end
+
+    context '#hourly_weather' do
+      it 'returns all weather forecast data every hour' do
+        expect(subject.hourly_weather).to be_a HourlyWeather
+      end
+    end
+
+    context '#daily_weather' do
+      it 'returns all weather forecast data for the next days' do
+        expect(subject.daily_weather).to be_a DailyWeather
       end
     end
   end
