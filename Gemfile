@@ -16,6 +16,7 @@ gem 'webmock'
 gem 'vcr'
 gem 'sidekiq'
 gem 'fast_jsonapi'
+gem 'faraday'
 
 
 group :development, :test do
