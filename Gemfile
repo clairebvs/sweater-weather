@@ -15,6 +15,7 @@ gem 'figaro'
 gem 'webmock'
 gem 'vcr'
 gem 'sidekiq'
+gem 'fast_jsonapi'
 
 
 group :development, :test do
