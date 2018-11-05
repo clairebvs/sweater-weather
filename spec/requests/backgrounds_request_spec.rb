@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe "GET /api/v1/backgrounds?location=denver,co" do
-  it "returns a JSON response with image data for a location" do
+describe 'GET /api/v1/backgrounds?location=denver,co' do
+  it 'returns a JSON response with image data for a location' do
 
-    get "/api/v1/backgrounds?location=denver,co"
+    get '/api/v1/backgrounds?location=denver,co'
 
     expect(response.status).to eq 200
 
@@ -13,6 +13,9 @@ describe "GET /api/v1/backgrounds?location=denver,co" do
     expect(image[:data]).to have_key(:id)
     expect(image[:data]).to have_key(:type)
     expect(image[:data]).to have_key(:attributes)
-    expect(image[:data][:attributes]).to have_key(:image)
+    expect(image[:data][:attributes][:city_image]).to have_key(:city_id)
+    expect(image[:data][:attributes][:city_image]).to have_key(:city_title)
+    expect(image[:data][:attributes][:city_image]).to have_key(:city_url)
+    expect(image[:data][:attributes][:city_image]).to have_key(:city_short_url)
   end
 end
