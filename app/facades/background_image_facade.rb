@@ -4,7 +4,6 @@ class BackgroundImageFacade
   end
 
   def city_image
-    photos = flickr_service.all_photos
     city_photo = photos.sample
 
     { city_id: city_photo.id,
@@ -19,5 +18,9 @@ class BackgroundImageFacade
 
   def flickr_service
     FlickrService.new(location)
+  end
+
+  def photos
+    flickr_service.all_photos
   end
 end
