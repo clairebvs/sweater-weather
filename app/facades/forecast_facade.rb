@@ -1,6 +1,4 @@
 class ForecastFacade
-  attr_reader :location
-
   def initialize(location)
     @location = location
   end
@@ -26,6 +24,7 @@ class ForecastFacade
   end
 
   private
+  attr_reader :location
 
   def dark_sky_service
     DarkSkyService.new(latitude, longitude)
