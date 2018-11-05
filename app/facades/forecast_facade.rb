@@ -6,9 +6,11 @@ class ForecastFacade
   end
 
   def current_weather
-    @current_weather ||= dark_sky_service.weather_forecast do |current_data|
-      CurrentWeather.new(current_data)
-    end
+    @current_weather ||= dark_sky_service.weather_forecast[:currently]
+  end
+
+  def hourly_weather
+    @hourly_weather ||= dark_sky_service.weather_forecast[:hourly][:data]
   end
 
   def latitude
@@ -22,7 +24,7 @@ class ForecastFacade
   private
 
   def dark_sky_service
-    DarkSkyService.new(@latitude, @longitude)
+    DarkSkyService.new(latitude, longitude)
   end
 
   def geocode_service
