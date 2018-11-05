@@ -57,7 +57,11 @@ describe ForecastFacade do
 
     context '#daily_weather' do
       it 'returns all weather forecast data for the next days' do
-        expect(subject.daily_weather).to be_a DailyWeather
+        expect(subject.daily_weather).to be_an Array
+        expect(subject.daily_weather.first).to have_key(:summary)
+        expect(subject.daily_weather.first).to have_key(:precipProbability)
+        expect(subject.daily_weather.first).to have_key(:temperatureHigh)
+        expect(subject.daily_weather.first).to have_key(:temperatureLow)
       end
     end
   end
