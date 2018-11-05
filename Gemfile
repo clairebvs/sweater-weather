@@ -17,6 +17,7 @@ gem 'vcr'
 gem 'sidekiq'
 gem 'fast_jsonapi'
 gem 'faraday'
+gem "flickr-objects"
 
 
 group :development, :test do
