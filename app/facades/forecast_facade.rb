@@ -13,6 +13,10 @@ class ForecastFacade
     @hourly_weather ||= dark_sky_service.weather_forecast[:hourly][:data]
   end
 
+  def daily_weather
+    @daily_weather ||= dark_sky_service.weather_forecast[:daily][:data]
+  end
+
   def latitude
     @latitude ||= geocode_service.coordinates[:lat]
   end
