@@ -3,4 +3,12 @@ class User < ApplicationRecord
   validates :password, presence: true
 
   has_secure_password
+
+  before_save :generate_api_key
+
+  private
+
+  def generate_api_key
+    self.api_key = SecureRandom.uuid
+  end
 end
