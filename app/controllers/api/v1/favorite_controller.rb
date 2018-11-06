@@ -1,9 +1,14 @@
 class Api::V1::FavoriteController < ApplicationController
   def create
-    render json: FavoriteSerializer.new(add_favorite), status: 200
+    if favorite_params[:api_key].present?
+      render json: FavoriteSerializer.new(add_favorite), status: 200
+    else
+      render status: 401
+    end
   end
 
   private
+
   def favorite_params
     params.permit(:api_key, :location)
   end
