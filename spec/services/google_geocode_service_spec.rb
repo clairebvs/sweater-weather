@@ -11,10 +11,12 @@ describe GoogleGeocodeService do
   context 'instance methods' do
     context '#coordinates' do
       it 'returns a hash with coordinates data' do
-        raw_coordinates = subject.coordinates
+        VCR.use_cassette("geocode_data") do
+          raw_coordinates = subject.coordinates
 
-        expect(raw_coordinates).to have_key :lat
-        expect(raw_coordinates).to have_key :lng
+          expect(raw_coordinates).to have_key :lat
+          expect(raw_coordinates).to have_key :lng
+        end
       end
     end
   end

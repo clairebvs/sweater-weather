@@ -11,8 +11,10 @@ describe FlickrService do
   context 'instance methods' do
     context '#all_photos' do
       it 'returns an array of Flickr image object' do
+        VCR.use_cassette("image_data") do
 
-        expect(subject.all_photos).to be_an Array
+          expect(subject.all_photos).to be_an Array
+        end
       end
     end
   end

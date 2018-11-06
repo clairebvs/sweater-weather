@@ -12,12 +12,15 @@ describe DarkSkyService do
   context 'instance methods' do
     context '#weather_forecast' do
       it 'returns a hash with weather data' do
-        raw_weather_data = subject.weather_forecast
+        VCR.use_cassette("weather_forecast_data") do
 
-        expect(raw_weather_data).to be_a Hash
-        expect(raw_weather_data).to have_key :currently
-        expect(raw_weather_data).to have_key :daily
-        expect(raw_weather_data).to have_key :hourly
+          raw_weather_data = subject.weather_forecast
+
+          expect(raw_weather_data).to be_a Hash
+          expect(raw_weather_data).to have_key :currently
+          expect(raw_weather_data).to have_key :daily
+          expect(raw_weather_data).to have_key :hourly
+        end
       end
     end
   end
