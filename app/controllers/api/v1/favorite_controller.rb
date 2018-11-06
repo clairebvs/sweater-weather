@@ -1,6 +1,6 @@
 class Api::V1::FavoriteController < ApplicationController
   def create
-    if favorite_params[:api_key].present?
+    if favorite_params[:api_key].present? && user.present?
       render json: FavoriteSerializer.new(add_favorite), status: 200
     else
       render status: 401
