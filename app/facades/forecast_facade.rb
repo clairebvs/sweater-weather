@@ -26,6 +26,13 @@ class ForecastFacade
   private
   attr_reader :location
 
+  def location_hash
+    split_location = location.split(",")
+    { city: split_location[0].capitalize,
+      state: split_location[1].upcase
+    }
+  end
+
   def dark_sky_service
     DarkSkyService.new(latitude, longitude)
   end
