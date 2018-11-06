@@ -21,6 +21,6 @@ class FlickrService
       config.shared_secret = ENV['flickr_secret']
     end
 
-    Flickr.photos.search(lat: latitude, lon: longitude)
+    Flickr.photos.search(lat: latitude, lon: longitude, tags: "city")
   end
 end
