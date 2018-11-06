@@ -1,10 +1,11 @@
+require 'securerandom'
 class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
 
   has_secure_password
 
-  before_save :generate_api_key
+  before_create :generate_api_key
 
   private
 
