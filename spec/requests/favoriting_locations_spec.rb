@@ -2,14 +2,15 @@ require 'rails_helper'
 describe 'POST /api/v1/favorites' do
   it 'returns a JSON response ' do
     user = create(:user)
+    favorite_params = { api_key: "jgn983hy48thw9begh98h4539h4",
+                        location: "Denver, CO"
+                  }
 
-    post "/api/v1/favorites"
+    post "/api/v1/favorites", params: favorite_params
 
     expect(response.status).to eq 200
 
     favorite = JSON.parse(response.body, symbolize_names: true)
-
-    expect(favorite[:data][:attributes][:api_key]).to eq(user.api_key)
 
     expect(favorite[:data]).to have_key(:id)
     expect(favorite[:data]).to have_key(:type)
@@ -18,6 +19,9 @@ describe 'POST /api/v1/favorites' do
     expect(favorite[:data][:attributes]).to have_key(:location)
   end
 end
+
+# add fail if no api_key
+# add fail if no location
 
 # body:
 # {
