@@ -14,6 +14,10 @@ describe 'POST /api/v1/users' do
 
     account = JSON.parse(response.body, symbolize_names: true)
 
-    expect(account).to have_key(:api_key)
+    expect(account).to have_key(:data)
+    expect(account[:data]).to have_key(:id)
+    expect(account[:data]).to have_key(:type)
+    expect(account[:data]).to have_key(:attributes)
+    expect(account[:data][:attributes]).to have_key(:api_key)
   end
 end
