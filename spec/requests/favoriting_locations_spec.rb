@@ -30,4 +30,16 @@ describe 'POST /api/v1/favorites' do
 
     expect(response.status).to eq 401
   end
+
+  it 'returns 401 (Unauthorized) if API key is incorrect' do
+    user = User.create(password: "password", email: "myemail@so.com", api_key: "999999hy48thw9begh98h4539h4")
+
+    favorite_params = { api_key: "jgn983hy48thw9begh98h4539h4",
+                        location: "Denver, CO"
+                      }
+
+    post "/api/v1/favorites", params: favorite_params
+
+    expect(response.status).to eq 401
+  end
 end
