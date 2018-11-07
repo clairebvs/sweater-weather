@@ -7,7 +7,6 @@ end
 
 gem 'rails', '~> 5.1.6'
 gem 'pg'
-gem 'sqlite3'
 gem 'puma', '~> 3.7'
 gem 'webpacker'
 gem 'bcrypt'
@@ -16,6 +15,8 @@ gem 'webmock'
 gem 'vcr'
 gem 'sidekiq'
 gem 'fast_jsonapi'
+gem 'faraday'
+gem "flickr-objects"
 
 
 group :development, :test do

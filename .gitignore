@@ -26,3 +26,4 @@ yarn-debug.log*
 
 coverage
 /fixtures
+/config/application.yml
