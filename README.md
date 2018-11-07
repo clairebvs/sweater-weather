@@ -23,4 +23,5 @@ This application consumes three API :
 
 Initial Setup : 
 Clone this repository using the following command line : ```git clone https://github.com/clairebvs/sweater-weather.git ```
-Then run: ```bundle install``
+
+Then run: ```bundle install```
