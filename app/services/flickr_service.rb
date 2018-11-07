@@ -4,7 +4,7 @@ class FlickrService
   end
 
   def forecast
-    ForecastFacade.new(@location)
+    Forecast.new(@location)
   end
 
   def latitude

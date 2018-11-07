@@ -1,4 +1,4 @@
-class ForecastFacade
+class Forecast
   def initialize(location)
     @location = location
   end

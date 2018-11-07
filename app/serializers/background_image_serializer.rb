@@ -1,4 +1,4 @@
-class BackgroundImageFacadeSerializer
+class BackgroundImageSerializer
   include FastJsonapi::ObjectSerializer
   attributes :city_image
 
