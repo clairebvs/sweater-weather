@@ -16,7 +16,7 @@ Stack used :
 * Figaro 
 * Faraday
 
-This application requires three API : 
+This application consumes three API : 
 * Google Geocode API (retrieve latitude and longitude for a city and state);
 * Dark Sky API (retrieve weather data (current, hourly, daily) for a specific location);
 * Flickr API (retrieve a collection of images for a location). 
