@@ -21,7 +21,8 @@ This application consumes three API :
 * Dark Sky API (retrieve weather data (current, hourly, daily) for a specific location);
 * Flickr API (retrieve a collection of images for a location). 
 
-Initial Setup : 
+Initial Setup :
+
 Clone this repository using the following command line : ```git clone https://github.com/clairebvs/sweater-weather.git ```
 
 Then run: ```bundle install```
