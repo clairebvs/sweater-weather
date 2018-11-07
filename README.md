@@ -10,8 +10,8 @@ You can create an account and then login/logout.
 This account creation will allow you to save your favorite location and see a listing of all your favorites location so you will not be able to say .... you did not know it was going to rain or snow !
 
 Stack used : 
-* Ruby            2.5.1 
-* Ruby on Rails   5.2.1
+* Ruby            2.4.1 
+* Ruby on Rails   5.1.6
 * Postgresql 
 * Figaro 
 * Faraday
