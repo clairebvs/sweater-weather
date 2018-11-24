@@ -4,7 +4,8 @@ class Api::V1::FavoriteController < ApplicationController
       favorite_locations = user(listing_params).favorites.each do |favorite|
         favorite.location
       end
-      render json: FavoriteLocation.new(favorite_locations)
+      listing_location = FavoriteLocation.new(favorite_locations)
+      render json: FavoriteLocationSerializer.new(listing_location)
     else
       render status: 401
     end
