@@ -1,6 +1,6 @@
 class Api::V1::FavoriteController < ApplicationController
   def index
-    favorite_locations = user.favorites.each do |favorite|
+    favorite_locations = user(listing_params).favorites.each do |favorite|
       favorite.location
     end
 
@@ -19,6 +19,10 @@ class Api::V1::FavoriteController < ApplicationController
 
   def favorite_params
     params.permit(:api_key, :location)
+  end
+
+  def listing_params
+    params.permit(:api_key)
   end
 
   def user(params)
