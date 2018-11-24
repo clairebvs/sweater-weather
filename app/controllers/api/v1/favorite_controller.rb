@@ -1,10 +1,13 @@
 class Api::V1::FavoriteController < ApplicationController
   def index
-    favorite_locations = user(listing_params).favorites.each do |favorite|
-      favorite.location
+    if listing_params[:api_key].present? && user(listing_params).present?
+      favorite_locations = user(listing_params).favorites.each do |favorite|
+        favorite.location
+      end
+      render json: FavoriteLocation.new(favorite_locations)
+    else
+      render status: 401
     end
-
-    render json: FavoriteLocation.new(favorite_locations)
   end
 
   def create
