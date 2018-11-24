@@ -1,6 +1,14 @@
 class Api::V1::FavoriteController < ApplicationController
+  def index
+    favorite_locations = user.favorites.each do |favorite|
+      favorite.location
+    end
+
+    render json: FavoriteLocation.new(favorite_locations)
+  end
+
   def create
-    if favorite_params[:api_key].present? && user.present?
+    if favorite_params[:api_key].present? && user(favorite_params).present?
       render json: FavoriteSerializer.new(add_favorite), status: 200
     else
       render status: 401
@@ -13,11 +21,11 @@ class Api::V1::FavoriteController < ApplicationController
     params.permit(:api_key, :location)
   end
 
-  def user
-    User.find_by_api_key(favorite_params[:api_key])
+  def user(params)
+    User.find_by_api_key(params[:api_key])
   end
 
   def add_favorite
-    user.favorites.find_or_create_by(location: favorite_params[:location])
+    user(favorite_params).favorites.find_or_create_by(location: favorite_params[:location])
   end
 end
