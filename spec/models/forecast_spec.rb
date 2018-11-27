@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-describe ForecastFacade do
+describe Forecast do
   location = "denver,co"
-  subject { ForecastFacade.new(location) }
+  subject { Forecast.new(location) }
 
   it 'exists' do
-    expect(subject).to be_a(ForecastFacade)
+    expect(subject).to be_a(Forecast)
   end
 
   context 'instance methods' do

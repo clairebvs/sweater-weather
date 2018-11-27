@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-describe BackgroundImageFacade do
+describe BackgroundImage do
   location = "denver,co"
-  subject { BackgroundImageFacade.new(location) }
+  subject { BackgroundImage.new(location) }
 
   it 'exists' do
-    expect(subject).to be_a(BackgroundImageFacade)
+    expect(subject).to be_a(BackgroundImage)
   end
 
   context 'instance methods' do

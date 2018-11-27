@@ -1,7 +1,7 @@
 class Api::V1::ForecastController < ApplicationController
   def index
-    forecast = ForecastFacade.new(params[:location])
+    forecast = Forecast.new(params[:location])
 
-    render json: ForecastFacadeSerializer.new(forecast)
+    render json: ForecastSerializer.new(forecast)
   end
 end
