@@ -27,7 +27,8 @@ class Forecast
   attr_reader :location
 
   def location_hash
-    split_location = location.split(",")
+    formatted_location = location.gsub(/\s+/, ',')
+    split_location = formatted_location.split(",")
     { city: split_location[0].capitalize,
       state: split_location[1].upcase
     }
