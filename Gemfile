@@ -17,7 +17,7 @@ gem 'sidekiq'
 gem 'fast_jsonapi'
 gem 'faraday'
 gem "flickr-objects"
-
+gem 'rack-cors', require: 'rack/cors'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
